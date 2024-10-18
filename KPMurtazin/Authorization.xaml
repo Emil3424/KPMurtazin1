@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KPMurtazin"
         mc:Ignorable="d"
-        Title="Authorization" Height="450" Width="350" ResizeMode="NoResize" Style="{StaticResource WindowStyle1}">
+        Title="Authorization" Height="450" Width="350" ResizeMode="NoResize" Background="#FFF4F4F9">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
@@ -13,9 +13,9 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" >
-            <Button Content="Регистрация" Click="newUser_Click" Style="{StaticResource greyButton}"
+            <Button Content="Регистрация" Click="newUser_Click" Style="{StaticResource darkGreyButton}"
             Width="auto" HorizontalAlignment="Left" Margin="5"/>
-            <Button Content="Авторизация" Click="autoUser_Click" Style="{StaticResource greyButton}"
+            <Button Content="Авторизация" Click="autoUser_Click" Style="{StaticResource darkGreyButton}"
             Width="auto" HorizontalAlignment="Right" Margin="5"/>
         </Grid>
 

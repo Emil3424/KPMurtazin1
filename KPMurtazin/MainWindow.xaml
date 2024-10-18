@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KPMurtazin"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="550" Width="800" Background="#FFF4F4F9">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
@@ -17,28 +17,29 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Row="0" Grid.ColumnSpan="2">
-            <TextBlock Text="Приложения для ..." Width="auto"
+            <TextBlock Text="Приложения для ..." Width="Auto" Style="{StaticResource text}"
                HorizontalAlignment="Center" VerticalAlignment="Center"
                FontSize="24" FontWeight="Bold"/>
             <Button Content="Назад" Margin="5" Width="150"
-            HorizontalAlignment="Right" 
+            HorizontalAlignment="Right" Style="{StaticResource darkGreyButton}"
             Click="btnGoBack_Click"/>
         </Grid>
 
-        <Grid Grid.Column="0" Grid.Row="1">
-            <Button Content="Открыть меню" Click="btnOpenMenu_Click" Width="150"
-            HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Grid Grid.Column="0" Grid.Row="1" Background="#FFF4F4F9">
+            <Button Click="btnOpenMenu_Click" Margin="0,10,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Style="{StaticResource darkGreyButton}" Width="130">
+                <TextBlock TextAlignment="Center">Открыть <LineBreak/>меню</TextBlock>
+            </Button>
 
-            <StackPanel x:Name="NavigationMenu" Background="White" Width="150" Height="auto"
+            <StackPanel x:Name="NavigationMenu" Background="#FFF4F4F9" Width="150" Height="auto"
                 HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Collapsed">
                 <Button Content="Главная" Margin="10"
-                Click="Navigate_Click"/>
+                Click="Navigate_Click" Style="{StaticResource darkGreyButton}"/>
                 <Button Content="Еще страница" Margin="10"
-                Click="Navigate_Click"/>
+                Click="Navigate_Click" Style="{StaticResource darkGreyButton}"/>
                 <Button Content="Ну когда-нибудь я её сделаю" Margin="10"
-                Click="Navigate_Click"/>
+                Click="Navigate_Click" Style="{StaticResource darkGreyButton}"/>
                 <Button Content="Тут будет отчет" Margin="10"
-                Click="Navigate_Click"/>
+                Click="Navigate_Click" Style="{StaticResource darkGreyButton}"/>
             </StackPanel>
         </Grid>
 

@@ -1,0 +1,28 @@
+﻿<Page x:Class="KPMurtazin.Pages.reg"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KPMurtazin.Pages"
+      mc:Ignorable="d" 
+      Height="auto" Width="300" Background="#FFF4F4F9">
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center">
+            <StackPanel Margin="15" >
+                <TextBlock Text="Введите имя (Логин)" Style="{StaticResource text}"/>
+                <TextBox Name="tbLogin" Style="{StaticResource TextBoxStyle}"/>
+            </StackPanel>
+            <StackPanel Margin="15" >
+                <TextBlock Text="Введите пароль" Style="{StaticResource text}"/>
+                <PasswordBox Name="tbPassword" Style="{StaticResource passBoxStyle}"/>
+            </StackPanel>
+            <StackPanel Margin="15" >
+                <TextBlock Text="Повторите пароль" Style="{StaticResource text}"/>
+                <PasswordBox Name="tbPassword2" Style="{StaticResource passBoxStyle}"/>
+            </StackPanel>
+            <Button Content="Зарегистрироваться"
+            Click="btnRegistration_Click"  Style="{StaticResource buttonMainGreen}"/>
+        </StackPanel>
+    </Grid>
+</Page>
