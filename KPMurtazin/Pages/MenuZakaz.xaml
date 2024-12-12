@@ -1,0 +1,77 @@
+﻿<Page x:Class="KPMurtazin.Pages.MenuZakaz"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:KPMurtazin.Pages"
+      mc:Ignorable="d"
+      MinHeight="450" MinWidth="950" Background="#fff9f7" Title="MenuZakaz">
+
+    <Grid x:Name="MainGrid">
+        <!-- Определения столбцов и строк -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="MenuColumn" Width="0.4*" />
+            <!-- Меню слева -->
+            <ColumnDefinition x:Name="ContentColumn" Width="9.6*" />
+            <!-- Контент справа -->
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <!-- Для кнопки -->
+            <RowDefinition Height="*" />
+            <!-- Для контента -->
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Весь прокручивающийся контент -->
+        <ScrollViewer Grid.Column="1" Grid.Row="1" Margin="0,0,10,0" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <TextBlock Text="MENU" Foreground="#FFAE8B48" FontSize="66" Margin="10" FontFamily="SOMETHING STRANGE" HorizontalAlignment="Center"/>
+                <Image Source="C:\Users\Эмиль Муртазин\Downloads\dddd.png" Width="260" Stretch="Fill" />
+
+                <ItemsControl ItemsSource="{Binding Menushka}" Name ="Menushkaa">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="4" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <Button Background="DimGray" BorderThickness="1" Margin="5" Width="200" Height="240"
+                                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                                    Click="ProductButton_Click" Style="{StaticResource darkGreyButton}">
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Nazvanie}" Foreground="White"  FontSize="16" TextAlignment="Center" Margin="5,10,5,0" TextWrapping="Wrap" />
+                                        <Image Source="{Binding Photo}" Width="160" Height="160" Stretch="Uniform"/>
+                                        <TextBlock Text="{Binding Cost, StringFormat='Цена: 0.00 ₽'}" Foreground="White" FontSize="14" TextAlignment="Center" Margin="5,5,5,5" />
+                                    </StackPanel>
+                                </Button>
+                                <Button Content="Добавить в корзину" Margin="20,-5,20,20" Width="160" Click="AddToCartButton_Click" DataContext="{Binding}" Background="#a9a9a9"
+                                        FontSize="13" Style="{StaticResource buttonMainGreen}" Height="30"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <TextBlock Text="Закуски" Foreground="#FFAE8B48" FontSize="36" Margin="10" FontFamily="Comic Sans MS" />
+
+                <!-- Блок "О нас" -->
+                <Border Background="#c2d7d1" Margin="0">
+                    <StackPanel>
+                        <TextBlock Text="О нас" Foreground="White" FontSize="36" Margin="10" FontFamily="Comic Sans MS"/>
+                        <TextBlock Text="Мы предлагаем широкий выбор напитков и закусок. Все наши продукты свежие и высокого качества. Присоединяйтесь к нам!"
+                       Foreground="White" FontSize="20" Margin="10" TextWrapping="Wrap" FontFamily="Comic Sans MS" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Background="#FF505050" Visibility="Collapsed" x:Name="CartPanel" Margin="0,0,0,0" Orientation="Horizontal">
+            <TextBlock x:Name="CartCountText" Foreground="White" FontSize="16" Padding="20" HorizontalAlignment="Left" />
+            <Button  Name ="Payment" Content ="Оплатить" Margin="600,0,0,0"  Width="180" Height="40" FontSize="16"
+                      BorderBrush="{x:Null}" Foreground="White" Click="Payment_click" Style="{StaticResource buttonMainGreen}"/>
+            <TextBlock x:Name="Price_Cart" Foreground="White" FontSize="16" Padding="20" HorizontalAlignment="Right" Margin="0,0,0,0" />
+        </StackPanel>
+    </Grid>
+</Page>

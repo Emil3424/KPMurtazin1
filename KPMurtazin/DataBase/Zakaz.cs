@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace KPMurtazin.DataBase
 {
@@ -12,6 +8,7 @@ namespace KPMurtazin.DataBase
         {
             Check = new HashSet<Check>();
         }
+
         public int ID_Zakaz { get; set; }
         public string Time_zakaz { get; set; }
         public int Day { get; set; }
