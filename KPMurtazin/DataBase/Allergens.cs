@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace KPMurtazin.DataBase
 {
@@ -18,6 +14,6 @@ namespace KPMurtazin.DataBase
         public double Protein { get; set; }
         public double Fats { get; set; }
         public double CarboHydrates { get; set; }
-        public virtual ICollection<Check> Check { get; set;}
+        public virtual ICollection<Check> Check { get; set; }
     }
 }
