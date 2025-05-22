@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace KPMurtazin.DataBase
 {
@@ -13,10 +8,11 @@ namespace KPMurtazin.DataBase
         {
             Bakery = new HashSet<Bakery>();
         }
-        public int Articul {  get; set; }
+
+        public int Articul { get; set; }
         public string Name { get; set; }
         public double KG { get; set; }
-        public string Deliver {  get; set; }
+        public string Deliver { get; set; }
         public string Box { get; set; }
         public int ID_Deliv { get; set; }
         public virtual Delivery Delivery { get; set; }

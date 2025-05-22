@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using KPMurtazin.DataBase;
+using KPMurtazin.Message;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace KPMurtazin.Pages
 {
@@ -27,15 +18,31 @@ namespace KPMurtazin.Pages
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Вы успешно авторезовались.", "Поздравляем!", MessageBoxButton.OK, MessageBoxImage.Information);
+            System.Collections.Generic.List<Users> result = new DB_Operation().ExecuteQuery<Users>("SELECT * FROM Users;");
 
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+            Users users = result.Where(w =>
+                w.Login == tbLogin.Text &&
+                w.Password == tbPassword.Password)
+                .ToList().LastOrDefault();
 
-            var window = Window.GetWindow(this);
-            if (window != null)
+            if (users != null)
             {
-                window.Close();
+                var messageWindow = new MessageWindow("Вы успешно авторизовались.");
+                messageWindow.ShowDialog();
+                messageWindow.Close();
+
+                MainWindow
+                    mainWindow = new MainWindow();
+                mainWindow.Show();
+
+                Window
+                    window = Window.GetWindow(this);
+                window?.Close();
+            }
+            else
+            {
+                var messageWindow = new FailMessageWindow("Plese Enter Valid Data.");
+                messageWindow.ShowDialog();
             }
         }
     }

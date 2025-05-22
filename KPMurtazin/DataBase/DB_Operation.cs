@@ -10,9 +10,10 @@ namespace KPMurtazin.DataBase
         private static readonly string connectionString
             = @"Data Source=ИС121 КП Муртазин котокафе.db;Version=3;";
 
-        public DB_Operation() { }
+        public DB_Operation()
+        { }
 
-        public List<T>ExecuteQuery<T>(string query, SQLiteParameter[] parameters = null) where T : new()
+        public List<T> ExecuteQuery<T>(string query, SQLiteParameter[] parameters = null) where T : new()
         {
             var result = new List<T>();
 
@@ -42,7 +43,7 @@ namespace KPMurtazin.DataBase
                                 string columnName = reader.GetName(i);
                                 object value = reader.GetValue(i);
 
-                                // Получаем свойство объекта, которое соответствует имени столбца 
+                                // Получаем свойство объекта, которое соответствует имени столбца
                                 PropertyInfo property = typeof(T).GetProperty(columnName, BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase);
 
                                 if (property != null && value != DBNull.Value)
@@ -99,6 +100,26 @@ namespace KPMurtazin.DataBase
             }
 
             return result;
+        }
+
+        public void Query(string sql, SQLiteParameter[] parameters = null)
+        {
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open(); // Открываем соединение
+                var command = new SQLiteCommand(sql, connection);
+
+                if (parameters != null)
+                {
+                    foreach (var item in parameters)
+                    {
+                        command.Parameters.Add(item);
+                    }
+                }
+
+                command.ExecuteNonQuery();
+                // Здесь соединение автоматически закрывается
+            }
         }
     }
 }

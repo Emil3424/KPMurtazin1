@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace KPMurtazin.DataBase
 {
@@ -12,10 +8,11 @@ namespace KPMurtazin.DataBase
         {
             Ingridients = new HashSet<Ingridients>();
         }
-        public int ID_Deliv {  get; set; }
-        public int ID_Sup {  get; set; }
+
+        public int ID_Deliv { get; set; }
+        public int ID_Sup { get; set; }
         public string Date_Post { get; set; }
-        public string Volume {  get; set; }
+        public string Volume { get; set; }
         public virtual Suppliers Suppliers { get; set; }
         public virtual ICollection<Ingridients> Ingridients { get; set; }
     }

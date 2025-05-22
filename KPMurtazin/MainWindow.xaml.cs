@@ -1,18 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace KPMurtazin
 {
@@ -27,21 +14,11 @@ namespace KPMurtazin
             MainFrame.Content = new Pages.ViewProduct();
         }
 
-        private void btnGoBack_Click(object sender, RoutedEventArgs e)
+        public void btnGoBack_Click(object sender, RoutedEventArgs e)
         {
             if (MainFrame.CanGoBack)
+            {
                 MainFrame.GoBack();
-        }
-
-        private void btnOpenMenu_Click(object sender, RoutedEventArgs e)
-        {
-            if (NavigationMenu.Visibility == Visibility.Collapsed)
-            {
-                NavigationMenu.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                NavigationMenu.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -55,15 +32,18 @@ namespace KPMurtazin
                     MainFrame.Content = new Pages.ViewProduct();
                     break;
 
-                //case "Еще страница":
-                //    MainFrame.Content = new Pages.AddProduct();
-                //    break;
+                case "Создание заказа":
+                    MainFrame.Content = new Pages.MenuZakaz();
+                    break;
 
                 case "Тут будет отчет":
                     MainFrame.Content = new Pages.ViewReport();
                     break;
+
+                case "Сотрудники":
+                    MainFrame.Content = new Pages.AddSotrudniki(null);
+                    break;
             }
-            NavigationMenu.Visibility = Visibility.Collapsed;
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <LangVersion>latest</LangVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{FEB50ED4-E5DD-40A6-B14E-08BDC3811C45}</ProjectGuid>
@@ -17,6 +17,22 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Эмиль Муртазин\Desktop\КП Муртазин\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -40,32 +56,33 @@
   <PropertyGroup>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>B8C1C42D0B0AB5C87685F6B2B7EF7F3841ABD109</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>KPMurtazin_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.SQLite, Version=1.0.119.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\lib\net46\System.Data.SQLite.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data.SQLite.EF6, Version=1.0.119.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.119.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data.SQLite.Linq, Version=1.0.119.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.119.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
-    </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
@@ -95,6 +112,7 @@
     </Compile>
     <Compile Include="DataBase\Allergens.cs" />
     <Compile Include="DataBase\Bakery.cs" />
+    <Compile Include="DataBase\CartItem.cs" />
     <Compile Include="DataBase\Cat.cs" />
     <Compile Include="DataBase\Check.cs" />
     <Compile Include="DataBase\DB_Operation.cs" />
@@ -105,16 +123,42 @@
     <Compile Include="DataBase\Sotrudniki.cs" />
     <Compile Include="DataBase\Suppliers.cs" />
     <Compile Include="DataBase\Table.cs" />
+    <Compile Include="DataBase\Users.cs" />
+    <Compile Include="DataBase\Vars.cs" />
     <Compile Include="DataBase\Zakaz.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Message\FailMessageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Message\MessageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AddProduct.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\AddSotrudniki.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\auto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Changepass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MenuZakaz.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PayMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -132,11 +176,29 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Message\FailMessageWindow.xaml.cs">
+      <DependentUpon>FailMessageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Message\MessageWindow.xaml.cs">
+      <DependentUpon>MessageWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AddProduct.xaml.cs">
       <DependentUpon>AddProduct.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AddSotrudniki.xaml.cs">
+      <DependentUpon>AddSotrudniki.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\auto.xaml.cs">
       <DependentUpon>auto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Changepass.xaml.cs">
+      <DependentUpon>Changepass.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MenuZakaz.xaml.cs">
+      <DependentUpon>MenuZakaz.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PayMenu.xaml.cs">
+      <DependentUpon>PayMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\reg.xaml.cs">
       <DependentUpon>reg.xaml</DependentUpon>
@@ -165,7 +227,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="packages.config" />
+    <None Include="KPMurtazin_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -180,15 +242,114 @@
   <ItemGroup>
     <Resource Include="favicon.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImagesMenu\helpinfo.png" />
+    <Resource Include="ImagesMenu\menuicon.png" />
+    <Resource Include="ImagesMenu\profil.png" />
+    <Resource Include="ImagesMenu\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Afog.png" />
+    <Resource Include="Pictures\Americano.jpg" />
+    <Resource Include="Pictures\Blin.png" />
+    <Resource Include="Pictures\Brawnie.png" />
+    <Resource Include="Pictures\Cacao.jpg" />
+    <Resource Include="Pictures\CakeFruits.png" />
+    <Resource Include="Pictures\Capuch.jpg" />
+    <Resource Include="Pictures\Chai.jpg" />
+    <Resource Include="Pictures\Cheesecake.png" />
+    <Resource Include="Pictures\Chili.png" />
+    <Resource Include="Pictures\Chill_Latte.jpg" />
+    <Resource Include="Pictures\Chococake.png" />
+    <Resource Include="Pictures\ChocoSyrup.png" />
+    <Resource Include="Pictures\Cof.png" />
+    <Resource Include="Pictures\CoffeeCor.png" />
+    <Resource Include="Pictures\CoffeeI.png" />
+    <Resource Include="Pictures\CoffeeNut.png" />
+    <Resource Include="Pictures\CokkieSand.png" />
+    <Resource Include="Pictures\Cruas.jpg" />
+    <Resource Include="Pictures\Donut.png" />
+    <Resource Include="Pictures\Espr.jpg" />
+    <Resource Include="Pictures\Flet.jpg" />
+    <Resource Include="Pictures\fnqDynt_bhE.jpg" />
+    <Resource Include="Pictures\frappe.png" />
+    <Resource Include="Pictures\Fruittart.png" />
+    <Resource Include="Pictures\Glintvein.jpg" />
+    <Resource Include="Pictures\Greeck.png" />
+    <Resource Include="Pictures\HotChoco.jpg" />
+    <Resource Include="Pictures\Hot_Choco.jpg" />
+    <Resource Include="Pictures\IceCacao.jpg" />
+    <Resource Include="Pictures\IceEspr.jpg" />
+    <Resource Include="Pictures\IceLatte.jpg" />
+    <Resource Include="Pictures\IceRaph.jpg" />
+    <Resource Include="Pictures\Irland.png" />
+    <Resource Include="Pictures\Kardam.png" />
+    <Resource Include="Pictures\Keks.png" />
+    <Resource Include="Pictures\Latte.jpg" />
+    <Resource Include="Pictures\LatteCold.png" />
+    <Resource Include="Pictures\Lavanda.png" />
+    <Resource Include="Pictures\Lavanda_Rafe.jpg" />
+    <Resource Include="Pictures\Limon_Pirog.jpg" />
+    <Resource Include="Pictures\Makiato.png" />
+    <Resource Include="Pictures\MindCoffee.png" />
+    <Resource Include="Pictures\Mokko.jpg" />
+    <Resource Include="Pictures\Muffin.jpg" />
+    <Resource Include="Pictures\Nap.png" />
+    <Resource Include="Pictures\Napol.png" />
+    <Resource Include="Pictures\Pes.png" />
+    <Resource Include="Pictures\Piroj.png" />
+    <Resource Include="Pictures\Raf.jpg" />
+    <Resource Include="Pictures\sh.png" />
+    <Resource Include="Pictures\Sloika.png" />
+    <Resource Include="Pictures\sm.png" />
+    <Resource Include="Pictures\Spec.png" />
+    <Resource Include="Pictures\Tai.png" />
+    <Resource Include="Pictures\Tvor.png" />
+    <Resource Include="Pictures\Vish.png" />
+    <Resource Include="Pictures\Vost.png" />
+    <Resource Include="Pictures\Zefir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ClosedXML">
+      <Version>0.104.1</Version>
+    </PackageReference>
+    <PackageReference Include="EntityFramework">
+      <Version>6.5.1</Version>
+    </PackageReference>
+    <PackageReference Include="EPPlus">
+      <Version>7.4.2</Version>
+    </PackageReference>
+    <PackageReference Include="LiveCharts.Wpf">
+      <Version>0.9.7</Version>
+    </PackageReference>
+    <PackageReference Include="Prism.Core">
+      <Version>9.0.537</Version>
+    </PackageReference>
+    <PackageReference Include="Stub.System.Data.SQLite.Core.NetStandard">
+      <Version>1.0.119</Version>
+    </PackageReference>
+    <PackageReference Include="System.Data.SQLite">
+      <Version>1.0.119</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe">
+      <Version>6.0.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Coconut.jpg" />
+    <Resource Include="Pictures\karamel.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
-    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
-  </Target>
-  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
-  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
 </Project>
